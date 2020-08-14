@@ -7,8 +7,8 @@
 
 namespace fs = std::filesystem;
 
-const std::string catalog_name{"/Users/valletta/catalog/example/cata.log"};
-const std::string directories_name{"/Users/valletta/catalog/example/dirs.log"};
+const std::string catalog_name{"/path/to/catalog/example/cata.log"};
+const std::string directories_name{"/path/to/catalog/example/dirs.log"};
 const int fail = -1;
 
 int parse_option(const std::string& arg);
