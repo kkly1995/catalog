@@ -34,7 +34,7 @@ void create_log(std::string fname)
 
     //create the log
     std::ofstream outfile{fname};
-    outfile << "Last modified: " << local_time();
+    outfile << "Catalog last modified " << local_time();
 }
 
 bool read_log(std::string fname, std::vector<Entry>& catalog)
@@ -48,7 +48,7 @@ bool read_log(std::string fname, std::vector<Entry>& catalog)
     //check first line
     std::string marker, time;
     infile >> marker;
-    if (!infile || marker != "Last") {
+    if (!infile || marker != "Catalog") {
         std::cout << "failed to read first line of " << fname
                 << ", expected header\n";
         return false;
@@ -160,7 +160,7 @@ void write_log(std::string fname, const std::vector<Entry>& catalog)
     //just dump catalog into file
 {
     std::ofstream outfile{fname};
-    outfile << "Last modified: " << local_time() << std::endl;
+    outfile << "Catalog last modified " << local_time() << std::endl;
 
     for (Entry en : catalog) {
         outfile << en << std::endl;

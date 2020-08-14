@@ -1,0 +1,30 @@
+Catalog last modified Fri Aug 14 13:10:57 2020
+
+(id) 0
+(authors) Bob and Alice
+(title) First paper
+(notes) 
+(dir_id) 0
+(filename) paper1
+
+(id) 1
+(authors) Albert Einstein
+(title) Second paper
+(notes) 
+(dir_id) 0
+(filename) paper2
+
+(id) 2
+(authors) Albert Einstein
+(title) Third paper
+(notes) 
+(dir_id) 0
+(filename) paper3
+
+(id) 3
+(authors) Alice
+(title) Fourth paper
+(notes) Bob wasn't available here
+(dir_id) 0
+(filename) paper4
+

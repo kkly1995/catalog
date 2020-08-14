@@ -7,8 +7,8 @@
 
 namespace fs = std::filesystem;
 
-const std::string catalog_name{"/path/to/catalog/logs/cata.log"};
-const std::string directories_name{"/path/to/catalog/logs/dirs.log"};
+const std::string catalog_name{"/Users/valletta/catalog/example/cata.log"};
+const std::string directories_name{"/Users/valletta/catalog/example/dirs.log"};
 const int fail = -1;
 
 int parse_option(const std::string& arg);
@@ -165,8 +165,40 @@ int main(int argc, char** argv)
             }
             lookup_notes(argv[2], catalog, directories);
             break;
+        case 13:
+        {
+            if (argc == 2) {
+                std::cout << "no ids input!\n";
+                return 1;
+            }
+            if (argc > 3) {
+                std::cout << "removing multiple ids "
+                        << "is not currently supported\n";
+                return 1;
+            }
+            int id = std::stoi(argv[2]); //should catch exception here
+            delete_entry(catalog, id);
+            write_log(catalog_name, catalog);
+            break;
+        }
+        case 14:
+        {
+            if (argc == 2) {
+                std::cout << "no dir_ids input!\n";
+                return 1;
+            }
+            if (argc > 3) {
+                std::cout << "removing multiple ids "
+                        << "is not currently supported\n";
+                return 1;
+            }
+            int id = std::stoi(argv[2]); //should catch exception here
+            delete_directory(directories, id);
+            write_directories(directories_name, directories);
+            break;
+        }
         default:
-            std::cout << "unimplemented option!\n";
+            std::cout << "nothing done\n";
     }
 }
 
@@ -185,7 +217,9 @@ int parse_option(const std::string& arg)
     if (arg == "-st") return 10;
     if (arg == "-sa") return 11;
     if (arg == "-sn") return 12;
+    if (arg == "-de") return 13;
+    if (arg == "-dd") return 14;
     //didn't find any valid input
-    std::cout << "option not recognized!\n";
+    std::cout << "input not recognized!\n";
     return fail;
 }

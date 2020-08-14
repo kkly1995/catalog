@@ -18,7 +18,6 @@ static inline void ltrim(std::string& s)
 }
 
 std::ostream& operator<<(std::ostream& os, const Entry& en)
-    //eventually want path, instead of dir_id + filename
 {
     return os << "(id) " << en.id << std::endl
             << "(authors) " << en.authors << std::endl
@@ -94,7 +93,8 @@ void print_entry(const Entry& en, const std::vector<std::string>& directories)
      * notably this provides the full path to the file targeted by entry
      * */
 {
-    std::cout << en.authors << std::endl
+    std::cout << "[" << en.id << "]\n"
+            << en.authors << std::endl
             << en.title << std::endl
             << directories[en.dir_id] << "/"
             << en.filename << std::endl;

@@ -18,7 +18,7 @@ void create_directories(std::string fname)
 
     //create the log
     std::ofstream outfile{fname};
-    outfile << "Last modified: " << local_time();
+    outfile << "Directories last modified: " << local_time();
 }
 
 bool read_directories(std::string fname, std::vector<std::string>& directories)
@@ -32,7 +32,7 @@ bool read_directories(std::string fname, std::vector<std::string>& directories)
     //check first line
     std::string marker;
     infile >> marker;
-    if (!infile || marker != "Last") {
+    if (!infile || marker != "Directories") {
         std::cout << "failed to read first line of " << fname
                 << ", expected header\n";
         return false;
@@ -51,7 +51,7 @@ void write_directories(std::string fname,
                     const std::vector<std::string>& directories)
 {
     std::ofstream outfile{fname};
-    outfile << "Last modified: " << local_time() << std::endl;
+    outfile << "Directories last modified: " << local_time() << std::endl;
 
     for (std::string dir : directories) {
         outfile << dir << std::endl;
