@@ -8,6 +8,7 @@ void update_notes(Entry& en, const std::string& new_notes);
 void update_filename(Entry& en, const std::string& new_filename);
 void change_dir(Entry& en, int new_dir_id);
 
-void add_entry(std::vector<Entry>& catalog, int dir_id,
-                const std::string& filename);
+void add_entry(std::vector<Entry>& catalog,
+        const std::vector<std::string>& directories,
+        int dir_id, const std::string& filename);
 void delete_entry(std::vector<Entry>& catalog, int id_to_del);

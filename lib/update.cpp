@@ -41,17 +41,18 @@ void change_dir(Entry& en, int new_dir_id)
     en.dir_id = new_dir_id;
 }
 
-void add_entry(std::vector<Entry>& catalog, int dir_id,
-            const std::string& filename)
+void add_entry(std::vector<Entry>& catalog,
+        const std::vector<std::string>& directories,
+        int dir_id, const std::string& filename)
 {
     Entry new_entry;
     new_entry.id = catalog.size();
     new_entry.dir_id = dir_id;
     new_entry.filename = filename;
     catalog.push_back(new_entry);
-    std::cout << "created new entry (id " << new_entry.id << ") for\n"
-            << new_entry.dir_id << "/"
-            << new_entry.filename << std::endl;
+    std::cout << "added " << directories[dir_id]
+            << "/" << filename << " (id = " << new_entry.id
+            << ")\n";
 }
 
 void delete_entry(std::vector<Entry>& catalog, int id_to_del)
