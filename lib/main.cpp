@@ -91,7 +91,7 @@ int main(int argc, char** argv)
             }
             {
                 int id = std::stoi(argv[2]); //should catch exception here
-                update_title(catalog[id], argv[3]);
+                update_title(catalog.at(id), argv[3]);
                 write_log(catalog_name, catalog);
             }
             break;
@@ -103,7 +103,7 @@ int main(int argc, char** argv)
             }
             {
                 int id = std::stoi(argv[2]); //should catch exception here
-                update_authors(catalog[id], argv[3]);
+                update_authors(catalog.at(id), argv[3]);
                 write_log(catalog_name, catalog);
             }
             break;
@@ -115,7 +115,7 @@ int main(int argc, char** argv)
             }
             {
                 int id = std::stoi(argv[2]); //should catch exception here
-                update_notes(catalog[id], argv[3]);
+                update_notes(catalog.at(id), argv[3]);
                 write_log(catalog_name, catalog);
             }
             break;
@@ -126,7 +126,7 @@ int main(int argc, char** argv)
             }
             {
                 int id = std::stoi(argv[2]); //should catch exception here
-                update_filename(catalog[id], argv[3]);
+                update_filename(catalog.at(id), argv[3]);
                 write_log(catalog_name, catalog);
             }
             break;
@@ -138,7 +138,7 @@ int main(int argc, char** argv)
             {
                 int id = std::stoi(argv[2]); //should catch exception here
                 int dir_id = std::stoi(argv[3]);
-                change_dir(catalog[id], dir_id);
+                change_dir(catalog.at(id), dir_id);
                 write_log(catalog_name, catalog);
             }
             break;
